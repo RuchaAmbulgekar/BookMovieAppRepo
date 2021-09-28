@@ -1,8 +1,38 @@
 import React from 'react';
+import './Header.css';
+import logo from '../../assets/logo.svg';
+import Button from '@material-ui/core/Button';
+import {useState} from 'react';
 
-export default function Header()
+const Header = () =>
 {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const renderButton = () =>{
+        if(isLoggedIn){
+            return(<Button variant="contained" color="default" >LOGOUT</Button>);
+        }
+        else{
+            return(<Button variant="contained" color="default" onClick={setIsLoggedIn} >LOGIN</Button>);
+        }
+    }
+
     return(
-        <div></div>
-    );
+         <div className="header">
+             <img src={logo} className="logo rotating"/>
+             <div className="button">
+                 {
+                    renderButton()
+                 }
+
+                {/* <Button variant="contained" color="primary" >BOOK SHOW</Button>
+                <Button variant="contained" color="default" >LOGIN</Button>
+                <Button variant="contained" color="default" >LOGOUT</Button> */}
+             </div>
+
+         </div>
+    )
 }
+
+
+export default Header;
