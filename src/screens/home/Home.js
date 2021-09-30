@@ -20,24 +20,20 @@ import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Typography from "@material-ui/core/Typography";
 import { TextField } from '@material-ui/core';
-import { createTheme } from '@mui/material/styles';
-import { light } from '@material-ui/core/styles/createPalette';
-
+import { createMuiTheme }  from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/core/styles'
+// import { makeStyles } from "@material-ui/core/styles";
 
 const Home = () =>{
 
     const [state, setState] = React.useState({});
 
-    const styles = (theme) => ({
-        close: {
-          margin: theme.spacing.unit,
-          minWidth: 240,
-          maxWidth: 240,
+    const theme = createMuiTheme({
+        palette: {
+          primary: { main: "#467fcf" },
         },
-        pallete: {
-          primary: light,
-        },
-      });
+      })
+      
 
       const handleChange = (event) => {
         setState({
@@ -90,30 +86,71 @@ const Home = () =>{
                 <div className="movieFilters">
                 <Card >
                     <CardContent>
-                        <Typography variant="headline" >
+                    {/* <ThemeProvider theme={theme}> */}
+                        <Typography className="theme">
                             FIND MOVIES BY:
                         </Typography>
+                        {/* </ThemeProvider> */}
                         <br />
 
                 <FormControl required className="formControl">
-                    <TextField id="standard-basic" label="Movie Name" variant="standard" /><br></br>
+                    <TextField id="standard-basic" label="Movie Name" variant="standard" />
                 </FormControl> 
+                <br></br>
+                <br></br>
 
-                <FormControl required className="formControl">
-                    <InputLabel htmlFor="genre">Genres</InputLabel>
-                    <Select value={"Genres"} onChange={handleChange}>
-                        
+                <FormControl >
+                <InputLabel htmlFor="genre">Genres</InputLabel> 
+                    <Select value={"Genres"} onChange={handleChange} label="Genre" variant="standard" >
+                       
                         <MenuItem >
                         <FormControlLabel
                                 control={
-                                <Checkbox onChange={handleChange} name="gilad" />
+                                <Checkbox onChange={handleChange} name="Genre1" />
                                 }
-                                label="Gilad Gray"
+                                label="Genre1"
                             />
                         </MenuItem>
                        
                     </Select>
                 </FormControl>
+                <br></br>
+                <br></br>
+                <FormControl >
+                    <InputLabel htmlFor="artists">Artists</InputLabel>
+                    <Select value={"Artists"} onChange={handleChange}>
+                        
+                        <MenuItem >
+                        <FormControlLabel
+                                control={
+                                <Checkbox onChange={handleChange} name="Artist1" />
+                                }
+                                label="Artist1"
+                            />
+                        </MenuItem>
+                       
+                    </Select>
+                </FormControl>
+                <br></br>
+                <br></br>
+
+                <FormControl>
+                    <InputLabel shrink="true">Release Date Start</InputLabel><br></br>
+                    <TextField id="standard-basic" type="Date" variant="standard" />
+                </FormControl>
+
+                <br></br>
+                <br></br>
+
+                <FormControl>
+                    <InputLabel shrink="true">Release Date End</InputLabel><br></br>
+                    <TextField id="standard-basic" type="Date" variant="standard" />
+                </FormControl>
+
+                <br></br>
+                <br></br>
+
+                <Button variant="contained" color="primary" >APPLY</Button>
 
           </CardContent>
         </Card>
