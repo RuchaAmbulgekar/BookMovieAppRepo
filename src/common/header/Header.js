@@ -13,7 +13,7 @@ const Header = () =>
             return(<Button variant="contained" color="default" >LOGOUT</Button>);
         }
         else{
-            return(<Button variant="contained" color="default" onClick={setIsLoggedIn} >LOGIN</Button>);
+            return(<Button variant="contained" color="default" onClick={()=>setIsLoggedIn(true)}>LOGIN</Button>);
         }
     }
 
@@ -24,10 +24,6 @@ const Header = () =>
                  {
                     renderButton()
                  }
-
-                {/* <Button variant="contained" color="primary" >BOOK SHOW</Button>
-                <Button variant="contained" color="default" >LOGIN</Button>
-                <Button variant="contained" color="default" >LOGOUT</Button> */}
              </div>
 
          </div>
