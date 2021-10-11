@@ -4,6 +4,7 @@ import Details from "../screens/details/Details";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import BookShow from "../screens/bookshow/BookShow";
 import Confirmation from "../screens/confirmation/Confirmation";
+import LoginRegisterModal from "../screens/loginRegisterModal/LoginRegisterModal";
 
 const Controller = () => {
   const baseUrl = "/api/v1/";
@@ -27,6 +28,10 @@ const Controller = () => {
         <Route
           path="/confirm/:id"
           render={(props) => <Confirmation {...props} baseUrl={baseUrl} />}
+        />
+         <Route
+          path="/loginRegisterModal"
+          render={() => <LoginRegisterModal baseUrl={baseUrl} />}
         />
       </div>
     </Router>

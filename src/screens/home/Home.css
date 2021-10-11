@@ -5,6 +5,25 @@
     font-size: 1rem;
 }
 
+.upcomingMovies{
+    /* overflow-x: scroll;
+    overflow-y:hidden;
+    display: flex; */
+    height: 260px;
+    width:100%;
+    overflow: scroll;
+}
+
+.imageList{
+    display:grid;
+    overflow: scroll;
+    column-count: 6;
+}
+
+.imageListItem{
+    cursor: pointer;
+}
+
 .flex-container{
     display: flex;
     
